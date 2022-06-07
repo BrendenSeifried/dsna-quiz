@@ -1,27 +1,24 @@
-// class Stack {
-//   constructor(id, name) {
-//     this.id = id;
-//     this.name = name;
-//   }
-//   data = () => {
-//     console.log(`${this.name} has the ID of: ${this.id} `);
-//   };
-// }
-
-// const stuff = new Stack(5, "example");
-// console.log(stuff.data);
-// stuff.data();
-
 class Stack {
   data = [];
+  constructor(stuff) {
+    this.stuff = stuff;
+  }
+  addback = (item) => {
+    this.data.push(item);
+  };
 
-  //   constructor(test) {
-  //     if (test) this.data = test;
-  //     console.log(test);
-  //   }
+  get readableList() {
+    return this.data.toString();
+  }
 }
-const answ = new Stack();
-console.log(answ);
+const stack = new Stack([1, 2, 3]);
+stack.addback("fox");
+stack.addback("cappybara");
+stack.addback("cats");
+stack.addback("seal");
+
+console.log(stack.readableList);
+
 class Queue {}
 
 module.exports = { Stack, Queue };
