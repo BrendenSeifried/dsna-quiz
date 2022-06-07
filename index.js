@@ -1,23 +1,27 @@
-// class Stack {
-//   data = [];
-//   constructor(stuff) {
-//     this.stuff = stuff;
-//   }
-//   addback = (item) => {
-//     this.data.push(item);
-//   };
+class Stack {
+  data = [];
+  constructor(stuff) {
+    this.stuff = stuff;
+  }
+  addback = (item) => {
+    this.data.push(item);
+  };
+  add2front(item2) {
+    this.data.unshift(item2);
+  }
 
-//   get readableList() {
-//     return this.data.toString();
-//   }
-// }
-// const stack = new Stack();
-// stack.addback("fox");
-// stack.addback("cappybara");
-// stack.addback("cats");
-// stack.addback("seal");
+  get readableList() {
+    return this.data.toString();
+  }
+}
+const stack = new Stack();
+stack.addback("fox");
+stack.addback("cappybara");
+stack.addback("cats");
+stack.addback("seal");
+stack.add2front("dogs");
 
-// console.log(stack.readableList);
+console.log(stack.readableList);
 
 class Queue {
   array = [];
