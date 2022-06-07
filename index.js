@@ -1,24 +1,58 @@
-class Stack {
-  data = [];
-  constructor(stuff) {
-    this.stuff = stuff;
+// class Stack {
+//   data = [];
+//   constructor(stuff) {
+//     this.stuff = stuff;
+//   }
+//   addback = (item) => {
+//     this.data.push(item);
+//   };
+
+//   get readableList() {
+//     return this.data.toString();
+//   }
+// }
+// const stack = new Stack();
+// stack.addback("fox");
+// stack.addback("cappybara");
+// stack.addback("cats");
+// stack.addback("seal");
+
+// console.log(stack.readableList);
+
+class Queue {
+  array = [];
+  constructor(item) {
+    this.item = item;
   }
-  addback = (item) => {
-    this.data.push(item);
+  enqueue = (item) => {
+    this.array.push(item);
+  };
+  dequeue = () => {
+    return this.array.shift();
+  };
+  hasNext = () => {
+    if (this.array.length > 0) return true;
+    else return false;
   };
 
   get readableList() {
-    return this.data.toString();
+    return this.array.toString();
   }
 }
-const stack = new Stack([1, 2, 3]);
-stack.addback("fox");
-stack.addback("cappybara");
-stack.addback("cats");
-stack.addback("seal");
 
-console.log(stack.readableList);
+const queue = new Queue();
+queue.enqueue("fox");
+queue.enqueue("goose");
+queue.enqueue("lizard");
+console.log(queue.readableList);
+console.log(queue.dequeue()); // 'fox'
+console.log(queue.hasNext()); // true
+console.log(queue.dequeue()); // 'goose'
+queue.enqueue("llama");
+console.log(queue.dequeue()); // 'lizard'
+console.log(queue.hasNext()); // true
+console.log(queue.dequeue()); // 'llama'
+console.log(queue.hasNext()); // false
+console.log(queue.dequeue());
 
-class Queue {}
-
-module.exports = { Stack, Queue };
+module.exports = { Queue };
